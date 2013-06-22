@@ -16,7 +16,7 @@ do ($ = jQuery, window, document) ->
     init: ->
       @el = $(@element)
       @el.css 'width', @el.width()
-      @elOffset = @el.offset().top
+      @elOffset = @el.offset().top - @settings.offset
       @fixMenu()
       @setupSpacing()
       $(window).scroll => @fixMenu()
@@ -30,7 +30,7 @@ do ($ = jQuery, window, document) ->
       if scrollOffset >= @elOffset
         @el.css({ 'position': 'fixed', 'top': @settings.offset }).addClass @settings.fixedClass
       else
-        @el.css({ 'position': 'absolute', 'top': @elOffset }).removeClass @settings.fixedClass
+        @el.css({ 'position': 'absolute', 'top': (@elOffset + @settings.offset) }).removeClass @settings.fixedClass
 
   $.fn[pluginName] = (options) ->
     @each ->

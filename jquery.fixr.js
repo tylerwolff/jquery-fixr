@@ -24,7 +24,7 @@
         var _this = this;
         this.el = $(this.element);
         this.el.css('width', this.el.width());
-        this.elOffset = this.el.offset().top;
+        this.elOffset = this.el.offset().top - this.settings.offset;
         this.fixMenu();
         this.setupSpacing();
         return $(window).scroll(function() {
@@ -49,7 +49,7 @@
         } else {
           return this.el.css({
             'position': 'absolute',
-            'top': this.elOffset
+            'top': this.elOffset + this.settings.offset
           }).removeClass(this.settings.fixedClass);
         }
       };
