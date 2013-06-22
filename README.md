@@ -1,7 +1,7 @@
 jQuery Fixr
 ===========
 
-A basic, no-frills plugin to make elements fixed as you scroll down a page.
+A basic, no-frills plugin to make elements fixed as you scroll down a page. Other than making elements fixed, this plugin also does some useful things for you behind the scenes. It creates proper vertical spacing for your fixed element so there's no jump in the body content when it's positioning changes. It toggles a class on your fixed element depending on state. In addition, it manually sets the width of your element to its current width so that you don't have to do it manually everytime (useful for responsive sites).
 
 ## How to use
 Include jQuery and the plugin file
@@ -20,6 +20,5 @@ $(function() {
 ## Options
 jQuery Fixr comes with only two options:
 
-`fixedClass` - The class that gets added when element is fixed (default: `fixed`)
-
-`offset` - The top margin when the element is fixed (default: `0`)
+- `fixedClass` - The class that gets added when element is fixed (default: `fixed`)
+- `offset` - The top margin when the element is fixed (default: `0`)
