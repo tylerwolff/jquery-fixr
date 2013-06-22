@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <html class="no-js">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>jQuery Fixr - Demo</title>
+      <meta name="viewport" content="width=device-width">
+      <link href='http://fonts.googleapis.com/css?family=Raleway:300,600' rel='stylesheet' type='text/css'>
+      <style type="text/css">
+        body {
+          width: 960px;
+          height: 2000px;
+          margin: 0 auto;
+          text-align: center;
+          font-family: 'Raleway';
+          text-rendering: optimizeLegibility;
+        }
+
+        #navigation {
+          background: #eee;
+          text-align: center;
+          border-radius: 5px;
+        }
+
+        #navigation.fixed {
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+        }
+
+        #main {
+          margin-top: 40px;
+          color: #666;
+        }
+
+        h1, .arrow { font-size: 60px; color: #000; }
+        h2 { font-weight: normal; }
+
+      </style>
+    </head>
+    <body>
+
+      <header>
+        <h1>jQuery Fixr</h1>
+      </header>
+
+      <nav id="navigation">
+        <h2>I want to be fixed to the top!</h2>
+      </nav>
+
+      <div id="main">
+        <p><strong>jQuery Fixr</strong> is a basic, no-frills plugin to help make elements fixed as you scroll down a page.</p>
+        <p>Scroll down to see it in action.</p>
+        <p class="arrow">&darr;</p>
+      </div>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+      <script src="jquery.fixr.js"></script>
+      <script type="text/javascript">
+        $(function() {
+          $('#navigation').fixr();
+        });
+      </script>
+    </body>
+</html>
