@@ -7,6 +7,7 @@ do ($ = jQuery, window, document) ->
   defaults =
     fixedClass: 'fixed'
     offset: 0
+    resize: false
 
   class Plugin
     constructor: (@element, options) ->
@@ -15,11 +16,18 @@ do ($ = jQuery, window, document) ->
 
     init: ->
       @el = $(@element)
-      @el.css 'width', @el.width()
+      @el.width @el.width()
       @elOffset = @el.offset().top - @settings.offset
       @fixMenu()
       @setupSpacing()
+
       $(window).scroll => @fixMenu()
+
+      if @settings.resize
+        $(window).resize =>
+          width = @el.css({ 'position': 'static', 'width': 'auto' }).width()
+          @el.width width
+          @fixMenu()
 
     setupSpacing: ->
       spacer = $('<div></div>').height @el.outerHeight()

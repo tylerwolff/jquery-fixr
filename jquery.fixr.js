@@ -10,7 +10,8 @@
     pluginName = "fixr";
     defaults = {
       fixedClass: 'fixed',
-      offset: 0
+      offset: 0,
+      resize: false
     };
     Plugin = (function() {
 
@@ -23,13 +24,24 @@
       Plugin.prototype.init = function() {
         var _this = this;
         this.el = $(this.element);
-        this.el.css('width', this.el.width());
+        this.el.width(this.el.width());
         this.elOffset = this.el.offset().top - this.settings.offset;
         this.fixMenu();
         this.setupSpacing();
-        return $(window).scroll(function() {
+        $(window).scroll(function() {
           return _this.fixMenu();
         });
+        if (this.settings.resize) {
+          return $(window).resize(function() {
+            var width;
+            width = _this.el.css({
+              'position': 'static',
+              'width': 'auto'
+            }).width();
+            _this.el.width(width);
+            return _this.fixMenu();
+          });
+        }
       };
 
       Plugin.prototype.setupSpacing = function() {
