@@ -19,5 +19,7 @@ $(function() {
 
 ## Options
 jQuery Fixr comes with only two options:
+
 `fixedClass` - The class that gets added when element is fixed (default: `fixed`)
+
 `offset` - The top margin when the element is fixed (default: `0`)
