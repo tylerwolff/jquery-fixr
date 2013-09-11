@@ -3,7 +3,6 @@
 # Copyright (c) 2013 Tyler Wolff. All rights reserved.
 do ($ = jQuery, window, document) ->
 
-  pluginName = "fixr"
   defaults =
     fixedClass: 'fixed'
     offset: 0
@@ -40,8 +39,8 @@ do ($ = jQuery, window, document) ->
       else
         @el.css({ 'position': 'absolute', 'top': (@elOffset + @settings.offset) }).removeClass @settings.fixedClass
 
-  $.fn[pluginName] = (options) ->
+  $.fn.fixr = (options) ->
     @each ->
-      if !$.data(@, "plugin_#{pluginName}")
-        $.data(@, "plugin_#{pluginName}", new Plugin(@, options))
+      if !$.data(@, "plugin_fixr")
+        $.data(@, "plugin_fixr", new Plugin(@, options))
 

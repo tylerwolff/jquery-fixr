@@ -4,17 +4,14 @@
  * Copyright (c) 2013 Tyler Wolff. All rights reserved.
  */
 (function() {
-
   (function($, window, document) {
-    var Plugin, defaults, pluginName;
-    pluginName = "fixr";
+    var Plugin, defaults;
     defaults = {
       fixedClass: 'fixed',
       offset: 0,
       resize: false
     };
     Plugin = (function() {
-
       function Plugin(element, options) {
         this.element = element;
         this.settings = $.extend({}, defaults, options);
@@ -69,10 +66,10 @@
       return Plugin;
 
     })();
-    return $.fn[pluginName] = function(options) {
+    return $.fn.fixr = function(options) {
       return this.each(function() {
-        if (!$.data(this, "plugin_" + pluginName)) {
-          return $.data(this, "plugin_" + pluginName, new Plugin(this, options));
+        if (!$.data(this, "plugin_fixr")) {
+          return $.data(this, "plugin_fixr", new Plugin(this, options));
         }
       });
     };
